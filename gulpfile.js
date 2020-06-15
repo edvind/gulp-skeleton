@@ -30,16 +30,14 @@ function hypertext() {
     .pipe(dest('dist/'));
 }
 
+function browsersync() {
+  browserSync.init({
+    server: "dist"
+  });
+  watch('src/scss/*.scss', stylesheet).on('change', browserSync.reload);
+  watch('src/js/*.js', javascript).on('change', browserSync.reload);
+  watch('src/**/*.html', hypertext).on('change', browserSync.reload);
+}
+
 exports.build = series(clean, parallel(stylesheet, javascript, hypertext));
-exports.default = series(
-  clean,
-  parallel(stylesheet, javascript, hypertext),
-  function() {
-    browserSync.init({
-      server: "dist"
-    });
-    watch('src/scss/*.scss', stylesheet).on('change', browserSync.reload);
-    watch('src/js/*.js', javascript).on('change', browserSync.reload);
-    watch('src/**/*.html', hypertext).on('change', browserSync.reload);
-  }
-);
+exports.default = series(clean, parallel(stylesheet, javascript, hypertext), browsersync);
