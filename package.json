@@ -9,7 +9,7 @@
   "author": "edvind",
   "license": "ISC",
   "devDependencies": {
-    "yargs-parser": ">=5.0.0-security.0",
+    "yargs-parser": ">=20.2.4",
     "browser-sync": "^2.26.13",
     "del": "^6.0.0",
     "gulp": "^4.0.2",
