@@ -17,7 +17,7 @@
     "gulp-concat": "^2.6.1",
     "gulp-sass": "^5.1.0",
     "normalize.css": "^8.0.1",
-    "sass": "^1.52.3",
+    "sass": "^1.53.0",
     "yargs-parser": ">=21.0.1"
   }
 }
